@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <div class="row">
+    <!-- Primeira coluna (form)  -->
+    <div class="col-lg-6">
+      <app-registro [contatoSelecionado]="contatoSelecionado"></app-registro>
+    </div>
+    <div class="col-lg-6">
+      <app-lista (contatoSelecionadoEvento)="onSelecionarContato($event)"></app-lista>
+    </div>
+
+      
+  </div>
+
+</div>

@@ -1,0 +1,62 @@
+<form class="mb-5" action="" [formGroup]="formContato" name="formContato">
+  <h1 class="display-6 text-primary">Contatos</h1>
+  <hr>
+  <div class="form-row" >
+    <input type="hidden" formControlName="id" class="form-control" id="inputId" name="id">
+    <div class="form-group col-md-6" [ngClass]="aplicaCssErro('nome')"> 
+      <label for="inputNome">Nome</label>
+      <input type="text"  formControlName="nome"  class="form-control" id="inputNome" placeholder="Nome completo">
+      <div *ngIf="validaForm('nome')" class="alert alert-danger"> Nome inválido</div>
+    </div>
+    <div class="form-group col-md-6" [ngClass]="aplicaCssErro('cpf')" > 
+      <label for="inputCPF">CPF</label>
+      <input type="text" formControlName="cpf" class="form-control" id="inputCPF" mask="999.999.999-99" placeholder="xxx.xxx.xxx-xx">
+      <div *ngIf="validaForm('cpf')" class="alert alert-danger"> Cpf inválido</div>
+    </div>
+    <div class="form-group col-md-6" [ngClass]="aplicaCssErro('email')">
+      <label for="inputEmail">Email</label>
+      <input type="email" formControlName="email" class="form-control" id="inputEmail" placeholder="Seu email">
+      <div *ngIf="validaForm('email')" class="alert alert-danger"> E-mail inválido</div>
+    </div>
+    <div class="form-group col-md-6" [ngClass]="aplicaCssErro('fone')">
+      <label for="inputTelefone ">Telefone</label>
+      <input type="text" formControlName="fone" class="form-control" id="inputTelefone" placeholder="Telefone">
+      <div *ngIf="validaForm('fone')" class="alert alert-danger"> Telefone inválido</div>
+    </div>
+    <div class="form-group col-12">
+      <label for="inputEndereco">Endereço</label>
+      <input type="text" formControlName="endereco" class="form-control" id="inputEndereco" placeholder="Número, nome da rua e bairro.">
+    </div>
+    <div class="form-group col-md-6" [ngClass]="aplicaCssErro('cidade')">
+      <label for="inputCidade">Cidade</label>
+      <input type="text" formControlName="cidade" class="form-control" id="inputCidade">
+      <div *ngIf="validaForm('cidade')" class="alert alert-danger"> Cidade inválida</div>
+    </div>
+    <div class="form-group col-md-3 col-6" [ngClass]="aplicaCssErro('estado')">
+      <label for="inputEstado">Estado</label>
+      <select id="inputEstado"  formControlName="estado" class="form-control">
+        <option> </option>
+        <option>Rio de Janeiro</option>
+        <option>São Paulo</option>
+        <option>Paraná</option>
+        <option>Ceará</option>  
+        <option>Acre</option>
+      </select>
+      <div *ngIf="validaForm('estado')" class="alert alert-danger"> Estado inválido</div>
+    </div>
+    <div class="form-group col-md-3 col-6" [ngClass]="aplicaCssErro('cep')">
+      <label for="inputCep">Cep</label>
+      <input type="text" formControlName="cep" class="form-control" id="inputCep"  placeholder="xxxxx-xxx" mask="99999-999"> 
+      <div *ngIf="validaForm('cep')" class="alert alert-danger"> Cep inválido</div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="onSave()">Salvar</button>
+</form>
+
+<!-- Valores:
+{{formContato.value | json}}
+
+<br>
+Status:
+{{formContato.valid | json}} -->

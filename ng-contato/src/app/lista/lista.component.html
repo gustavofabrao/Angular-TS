@@ -1,0 +1,16 @@
+ <!-- Segunda coluna (list) -->
+ <div class="mx-auto ">
+  <h1 class="display-6 text-primary">Agenda</h1>
+  <hr>		
+  <div class="bg-light rounded p-4 box-shadow">
+    <a href="#" class="list-group-item-action">
+      <ul class="lista-plano list-unstyled">
+          <li (click)="onSelecionado(item)" *ngFor="let item of listaContato" >
+            {{item.nome}}
+            <button class="btn btn-primary"  (click)="onDelete(item)">Excluir</button>
+            <hr>
+        </li>
+      </ul>
+    </a>
+  </div>
+</div>
